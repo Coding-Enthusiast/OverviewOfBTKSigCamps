@@ -21,8 +21,8 @@
         <Label Content="Escrow" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS" FontWeight="Bold"/>
 
         <ComboBox x:Name="cmbxAbbrev" HorizontalAlignment="Left" Margin="71,12,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbx_SelectionChanged"/>
-        <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="26" Margin="71,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="777Coin"/>
-        <TextBox x:Name="txtLink" HorizontalAlignment="Left" Height="26" Margin="71,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="https://bitcointalk.org/index.php?topic=1545750.0" VerticalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="26" Margin="71,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtLink" HorizontalAlignment="Left" Height="26" Margin="71,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalScrollBarVisibility="Auto"/>
         <ComboBox x:Name="cmbxType" HorizontalAlignment="Left" Margin="71,118,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbx_SelectionChanged"/>
         <TextBox x:Name="txtRateLegendary" HorizontalAlignment="Left" Height="26" Margin="299,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="0.00000000" TextChanged="txtRate_TextChanged"/>
         <TextBox x:Name="txtRateHero" HorizontalAlignment="Left" Height="26" Margin="299,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="0.00000000" TextChanged="txtRate_TextChanged"/>

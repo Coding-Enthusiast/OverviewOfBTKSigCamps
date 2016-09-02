@@ -28,6 +28,10 @@ namespace OverviewOfBTKSigCamps
         {
             return AddBBCode(textToBold, "u");
         }
+        private static string AddStrikeThrough(string textToBold)
+        {
+            return AddBBCode(textToBold, "s");
+        }
         private static string AddURL(string textToBold, string urlText)
         {
             return AddBBCode(textToBold, "url", urlText);
@@ -62,7 +66,7 @@ namespace OverviewOfBTKSigCamps
             StringBuilder result = new StringBuilder();
             result.AppendLine("[tr]");
 
-            result.AppendLine(MakeTableCell(sig.Abbrev.ToString()));
+            result.AppendLine(MakeTableCell(ChageAbbrevString(sig.Abbrev.ToString())));
             result.AppendLine(MakeTableCell(AddURL(sig.Name, sig.Link)));
             result.AppendLine(MakeTableCell(sig.CampaignType));
             result.AppendLine(MakeTableCell(sig.LegendaryRate.ToString()));
@@ -74,10 +78,58 @@ namespace OverviewOfBTKSigCamps
             result.AppendLine(MakeTableCell(sig.NewbRate.ToString()));
             result.AppendLine(MakeTableCell(sig.MinPost));
             result.AppendLine(MakeTableCell(sig.MaxPost));
-            result.AppendLine(MakeTableCell(sig.Escrow.ToString()));
+            result.AppendLine(MakeTableCell(ChangeEscrowString(sig.Escrow)));
 
             result.Append("[/tr]");
             return result.ToString();
+        }
+        private static string ChageAbbrevString(string Abbreviation)
+        {
+            if (Abbreviation == SignatureCampaign.Abbreviations.CFNP.ToString())
+            {
+                return AddStrikeThrough(AddColor(Abbreviation, ChooseColorForAbbreviation(Abbreviation)));
+            }
+            else
+            {
+                return AddColor(Abbreviation, ChooseColorForAbbreviation(Abbreviation));
+            }
+        }
+        private static string ChooseColorForAbbreviation(string Abbreviation)
+        {
+            string color = "black";
+            if (Abbreviation == SignatureCampaign.Abbreviations.A.ToString() || Abbreviation == SignatureCampaign.Abbreviations.CFNP.ToString())
+            {
+                color = "green";
+            }
+            else if (Abbreviation == SignatureCampaign.Abbreviations.PNYC.ToString() || Abbreviation == SignatureCampaign.Abbreviations.FLUX.ToString())
+            {
+                color = "orange";
+            }
+            return color;
+        }
+        private static string ChooseColorForEscrow(string EscrowType)
+        {
+            string color = "black";
+            if (EscrowType == SignatureCampaign.EscrowEnum.Yes.ToString())
+            {
+                color = "green";
+            }
+            else if (EscrowType == SignatureCampaign.EscrowEnum.YesNo.ToString())
+            {
+                color = "orange";
+            }
+            return color;
+        }
+        private static string ChangeEscrowString(string EscrowType)
+        {
+            if (EscrowType != SignatureCampaign.EscrowEnum.No.ToString())
+            {
+                return AddColor(EscrowType, ChooseColorForEscrow(EscrowType));
+            }
+            else
+            {
+                return EscrowType;
+            }
         }
     }
 }

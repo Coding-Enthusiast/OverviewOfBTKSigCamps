@@ -99,6 +99,8 @@ namespace OverviewOfBTKSigCamps
             mySig.MaxPost = txtMax.Text;
             mySig.Escrow = (string)cmbxEscrow.SelectedItem;
 
+            //mySig is added to a List to give the ability to use CustomBBCode.MakeTable() 
+            //and create the entire table instead of just one row
             List<SignatureCampaign> allSigs = new List<SignatureCampaign>();
             allSigs.Add(mySig);
 
